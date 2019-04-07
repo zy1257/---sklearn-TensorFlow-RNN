@@ -2,6 +2,7 @@
 数据集来自于[THUCTC: 一个高效的中文文本分类工具包](http://thuctc.thunlp.org/<br>)
 一共用10各类别：体育、财经、房产、家居、教育、科技、时尚、时政、游戏、娱乐<br>
 每个类别训练数据5000条，验证数据500条，测试数据1000条<br>
+可以到这里下载数据集: https://pan.baidu.com/s/1VV8ATWKGoo3Spd1yxU1YRw 提取码: rev9 
 
 ## 基于sklearn<br>
 用jieba分词，向量空间模型VSM表示文本，tf-idf计算特征权重<br>
