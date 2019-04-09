@@ -1,0 +1,25 @@
+import jieba
+import pickle
+from gensim.models import Word2Vec
+from gensim.models.word2vec import PathLineSentences
+
+def creat_files(save_path):
+  with open('.\\cnews_train\\cnews.train.txt',encoding = 'utf-8') as f:
+    file_nums = 0
+    for j in f:
+        temp = []
+        j_all = j.split(sep='\t')
+        j_jieba = list(jieba.cut(j_all[1]))
+        for word in j_jieba:
+            if word not in stop:
+                temp.append(word)
+        with open(save_path +'{}'.format(file_nums)+'.txt','w',encoding = 'utf-8') as s_seq:
+            s_seq.write(' '.join(temp))
+        file_nums += 1
+        
+def train():
+    input_dir = '.\\emotion\\data'
+    output_dir = '.\\model/emotion.model'
+    model = Word2Vec(PathLineSentences(input_dir),
+                     size = 100,window=10,min_count=5,workers = 1,iter=10)
+    model.save(output_dir)
